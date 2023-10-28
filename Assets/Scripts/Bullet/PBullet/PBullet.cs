@@ -9,7 +9,7 @@ public class PBullet : Bullet
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            //TODO Damage to enemy
+            collision.gameObject.GetComponent<Character>().MDanage(bulletDamage);
             RomoveBullet();
         }
     }

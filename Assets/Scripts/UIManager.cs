@@ -6,15 +6,24 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    [Header("元素吸收条")]
+    [Header("元素蓄能(右下)")]
     public List<Image> image_baseElem;
     public Image image_advancedElem;
-
     public Text selected_elem;
 
+    [Header("玩家防御(玩家头顶)")]
+    public GameObject panel_AbsorbCD;
+    public Image image_AbsorbCDTimer; 
+    //public GameObject panel_AbsorbUsing;
+    //public Image image_AbsorbUsingTimer;
+    public AbsorbCircle absorbCircle;
     private void Awake()
     {
         instance = this;
+    }
+    private void Update()
+    {
+        RefreshAbsorbUI();
     }
     public void RefreshElementUI()
     {
@@ -65,15 +74,36 @@ public class UIManager : MonoBehaviour
         }
 
     }
-
     public void RefreshSelectedElementUI()
     {
-        //TODO 
+        //TODO -1
     }
     public bool IsAdvancedElem(Element.TYPE type)
     {
         if (type == Element.TYPE.Fire || type == Element.TYPE.Water || type == Element.TYPE.Mud)
             return false;
         return true;
+    }
+
+    public void RefreshAbsorbUI()
+    {
+        Player player = PlayerManager.instance.currentPlayer;
+        panel_AbsorbCD.transform.position = player.transform.position + new Vector3(0, 1.5f, 0);
+        if (player.bulletAbsorbTimer < player.bulletAbsorbCD)
+        {
+            image_AbsorbCDTimer.fillAmount = (float)player.bulletAbsorbTimer / (float)player.bulletAbsorbCD * 0.98f;
+            image_AbsorbCDTimer.color = Color.black;
+            //if (absorbCircle.existTimer < absorbCircle.existTime)
+            //    panel_AbsorbUsing.SetActive(true);
+            //else
+            //    panel_AbsorbUsing.SetActive(false);
+        }
+        else
+        {
+            image_AbsorbCDTimer.fillAmount = 1 - ((float)absorbCircle.existTimer / (float)absorbCircle.existTime);
+            image_AbsorbCDTimer.color = Color.red;
+        }
+        
+
     }
 }

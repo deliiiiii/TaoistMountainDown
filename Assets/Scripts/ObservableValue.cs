@@ -56,7 +56,7 @@ public class ObservableValue<T>
         {
             case ("Room"):
             {
-                Debug.Log("RefreshRoom!");
+                //Debug.Log("RefreshRoom!");
                 break;
             }
             case ("Element"):

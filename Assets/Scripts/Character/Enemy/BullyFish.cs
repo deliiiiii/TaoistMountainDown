@@ -14,6 +14,11 @@ public class BullyFish : DaydreamGhost
     }
     private void Update()
     {
+        RotateShootLine();
+    }
+
+    void RotateShootLine()
+    {
         bulletDirection = (PlayerManager.instance.currentPlayer.transform.position - transform.position).normalized;
         float rotate_z = Mathf.Atan(bulletDirection.y / bulletDirection.x) * 180f / 3.1415926f;
         if (bulletDirection.x < 0)
@@ -34,7 +39,6 @@ public class BullyFish : DaydreamGhost
             Invoke(nameof(StartSkill_1), shootPreTime);
             return;
         }
-
         if (skill_1_ShotCount >= skill_1_ShotTimes)
         {
             EndSkill_1();

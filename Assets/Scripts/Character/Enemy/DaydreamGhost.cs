@@ -12,7 +12,6 @@ public class DaydreamGhost : Enemy
     public float emitAngle = 90f;
 
     protected int skill_1_ShotCount = 0;
-    protected Vector2 bulletDirection = Vector2.zero;
     protected override void Awake()
     {
         base.Awake();

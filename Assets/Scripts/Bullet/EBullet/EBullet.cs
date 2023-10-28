@@ -9,7 +9,7 @@ public class EBullet : Bullet
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("Player"))
         {
-            //TODO Damage to player
+            collision.gameObject.GetComponent<Character>().MDanage(bulletDamage);
             RomoveBullet();
         }
     }

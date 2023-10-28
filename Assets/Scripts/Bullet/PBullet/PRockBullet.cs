@@ -11,7 +11,7 @@ public class PRockBullet : PBullet
         
         int pos_this_x = Mathf.RoundToInt(transform.localPosition.x+0.5f);
         int pos_this_y = Mathf.RoundToInt(transform.localPosition.y+0.5f);
-        Debug.Log("Rock Pos : " + pos_this_x + " , " + pos_this_y);
+        //Debug.Log("Rock Pos : " + pos_this_x + " , " + pos_this_y);
         if (collision.gameObject.CompareTag("Wall"))
         {
             for (int dx = -1; dx <= 1; dx++)
@@ -27,7 +27,7 @@ public class PRockBullet : PBullet
 
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            //TODO Damage to enemy
+            collision.gameObject.GetComponent<Character>().MDanage(bulletDamage);
 
             Vector2 delta = transform.position - collision.transform.position;
             int dx = delta.x >= 0 ? 1 : -1;

@@ -10,9 +10,10 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed;
     [Header("子弹大小")]
     public float bulletSize;
-    [Header("子弹存在时长")]
+    [Header("子弹存在最大时间")]
     public float bulletExistTime;
-    protected float bulletExistTimer = 0;
+    [SerializeField][Header("子弹已经存在时间")]
+    public float bulletExistTimer = 0;
     public Element bulletElement;
     // Update is called once per frame
     void FixedUpdate()
@@ -24,6 +25,16 @@ public class Bullet : MonoBehaviour
         bulletExistTimer += Time.deltaTime;
         if(bulletExistTimer >= bulletExistTime)
         {
+            if(gameObject.GetComponent<PWindBullet>())
+            {
+                gameObject.GetComponent<PWindBullet>().SetSomeActive_beforeWind();
+                return;
+            }
+            if (gameObject.GetComponent<PMeltBullet>())
+            {
+                gameObject.GetComponent<PMeltBullet>().SetSomeActive_beforeMelt();
+                return;
+            }
             RomoveBullet();
         }
     }

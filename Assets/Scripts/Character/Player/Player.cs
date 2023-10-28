@@ -16,17 +16,21 @@ public class Player : Character
 
     [Header("子弹射击CD")]
     public float bulletShootCD;
+    [Header("高级子弹射击CD")]
+    public float advancedBulletShootCD;
     private float bulletShootTimer = 9999f;
 
     [Header("吸收技能CD")]
     public float bulletAbsorbCD;
-    [SerializeField]
-    private float bulletAbsorbTimer = 9999f;
+    public float bulletAbsorbTimer = 9999f;
     [Header("已吸收的元素")]
     public List<Element> list_absorb_elem = new();
     [HideInInspector]
     public ObservableValue<int> seleted_elem = new(-1, "seleted_elem");
+
     public GameObject absorb_circle;
+    public GameObject weapon;
+    public GameObject weaponHole;
     private float stillVelocity = 0.1f;//小于这个速度则视为静止
     
     public enum STATE
@@ -43,7 +47,7 @@ public class Player : Character
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
+        curHP = maxHP;
         dic_bullet = new()
         {
             { Element.TYPE.None, PBullet},
@@ -58,6 +62,31 @@ public class Player : Character
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Room room = collision.GetComponent<Room>();
+        if (room)
+        {
+            RoomManager.instance.currentRoom.Value = room;
+            if (room.type == Room.ROOMTYPE.initial || room.type == Room.ROOMTYPE.destination)
+                return;
+            if (room.isExplored)
+                return;
+            
+            room.isExplored = true;
+            room.GenerateEnemy();
+            room.SetDoorState(true);
+        }
+    }
+
+    protected void RotateWeapon()
+    {
+        bulletDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        float rotate_z = Mathf.Atan(bulletDirection.y / bulletDirection.x) * 180f / 3.1415926f;
+        if (bulletDirection.x < 0)
+            rotate_z += 180f;
+        weapon.transform.rotation = Quaternion.Euler(new(0, 0, rotate_z));
+    }
 
     public virtual void InputMove()
     {
@@ -103,30 +132,30 @@ public class Player : Character
                 rb.velocity = Vector2.zero;
                 currentState = STATE.Idling;
                 SetAnim_Move(null);
-                anim.SetTrigger("Idle");
+                //anim.SetTrigger("Idle");
             }
         }
     }
     public virtual void InputShoot()
     {
-        if (bulletShootTimer < bulletShootCD)
+        float true_bulletShootCD = bulletShootCD;
+        if(seleted_elem.Value == 0)
+            if (IsAdvancedElem(list_absorb_elem[0].type))
+                true_bulletShootCD = advancedBulletShootCD;
+        if (bulletShootTimer < true_bulletShootCD)
         {
             bulletShootTimer += Time.deltaTime;
             return;
         }
         if (Input.GetMouseButton(0)) 
         {
-            
-            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-           
-
-            Vector3 bulletDirection = ((Vector3)target - transform.position).normalized;
+            bulletDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
 
             //Debug.Log("player pos = " + transform.position);
             //Debug.Log("target = " + target);
             //Debug.Log("bulletDirection = " + bulletDirection);
 
-            GameObject newBullet = RoomManager.instance.GenerateBullet(gameObject, bulletDirection).gameObject;
+            RoomManager.instance.GenerateBullet(gameObject, bulletDirection);
             if(seleted_elem.Value != -1)
             {
                 list_absorb_elem[seleted_elem.Value].amount.Value--;
@@ -141,7 +170,7 @@ public class Player : Character
     }
     public virtual void InputSkill()
     {
-        if (bulletAbsorbTimer < bulletAbsorbCD && !absorb_circle.activeSelf)
+        if (bulletAbsorbTimer < bulletAbsorbCD)
         {
             bulletAbsorbTimer += Time.deltaTime;
         }
@@ -197,15 +226,10 @@ public class Player : Character
     {
         Element.TYPE type;
         if (seleted_elem.Value == -1)
-        {
             type = Element.TYPE.None;
-            bullet = dic_bullet[type];
-        }
         else
-        {
             type = list_absorb_elem[seleted_elem.Value].type;
-            bullet = dic_bullet[type];
-        }
+        bullet = dic_bullet[type];
         UIManager.instance.selected_elem.text = type.ToString();
     }
     public bool AbsorbElement(Element.TYPE type)

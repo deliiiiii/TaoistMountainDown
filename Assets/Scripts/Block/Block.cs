@@ -11,7 +11,7 @@ public class Block : MonoBehaviour
     public int pos_x = -1;
     public int pos_y = -1;
     public bool? isBombable = null;
-    public bool? isTearable = null;
+    public bool? isTearable = true;
     public int HP = -1;
     public List<Sprite> sprite_HP = new();
     public void MDamage(int damage)

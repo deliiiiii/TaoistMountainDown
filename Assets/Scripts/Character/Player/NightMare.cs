@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class NightMare : Player
 {
@@ -9,8 +10,9 @@ public class NightMare : Player
         base.InputMove();
         
     }
-    private void Update()
+    protected void Update()
     {
+        RotateWeapon();
         base.InputShoot();
         base.InputSkill();
     }

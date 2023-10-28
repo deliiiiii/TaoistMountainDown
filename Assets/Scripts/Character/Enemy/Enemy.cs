@@ -1,33 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Character
 {
-    
+    private Vector2 v;//移动中的速度
 
-    [Tooltip("技能CD")]
+    [Header("技能CD(技能释放期间后不会回复)")]
     public List<float> skill_loadCD;
-    [Tooltip("技能充能条")]
+    [Header("技能充能条,初始值就是技能初动")]
     public List<float> skill_loadTimer;
     [Header("技能持续时间")]
     public List<float> skill_usingMaxTime;
-    [Tooltip("技能阻回条")]
+    [Header("技能阻回条(已经释放的时长)")]
     public List<float> skill_usingTimer;
-    [Tooltip("技能攻击范围")]
+    [Header("技能攻击范围")]
     public List<float> skill_range;
-    [Tooltip("是否正在释放技能")]
+    [Header("是否正在释放技能")]
     public List<bool> skill_emit;
     protected delegate void SkillFuncs();
     protected List<SkillFuncs> skillFuncs;
     protected Vector3 target;
 
-    [Header("攻击前摇")]
+   
     public GameObject readyToShoot;
+    [Header("攻击前摇时间")]
     public float shootPreTime = 0.2f;
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        curHP = maxHP;
         skillFuncs = new() { Skill_0 };
     }
     public void Skill_0()
@@ -38,23 +41,22 @@ public class Enemy : Character
         if (!player)
             return;
         skill_emit[0] = true;
+        Vector3 delta_v;
         if (CheckNear(player.transform.position, transform.position, skill_range[0]))
         {
             //Debug.Log("Next to player : MOVE!!");
-            Vector3 delta_vec = (player.transform.position - transform.position).normalized;
-            transform.GetComponent<Rigidbody2D>().velocity = delta_vec * moveSpeed;
+            delta_v = player.transform.position - transform.position;
             target = player.transform.position;
-            //StartCoroutine(nameof(EndSkill_1),player.transform);
         }
         else
         {
             //Debug.Log("# Random MOVE!!");
-            Vector3 delta_vec = new(Random.Range(-1.2f, 1.2f), UnityEngine.Random.Range(-1.2f, 1.2f), 0f);
-            //transform.GetComponent<Rigidbody2D>().velocity = delta_vec * moveSpeed;
-            transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            delta_v = new(Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0f);
+            //transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             target = new(1e9f, 1e9f, 0f);
-            //StartCoroutine(nameof(EndSkill_1), remoteDirection);
         }
+        v = delta_v.normalized;
+        transform.GetComponent<Rigidbody2D>().velocity = v * moveSpeed;
         EndSkill_0();
     }
     public void EndSkill_0()
@@ -63,6 +65,7 @@ public class Enemy : Character
         //anim.SetBool("Move", false);
         if (!CheckNear(transform.position, target, 0.1f) && skill_usingTimer[0] <= skill_usingMaxTime[0])
         {
+            transform.GetComponent<Rigidbody2D>().velocity = v * moveSpeed;
             skill_usingTimer[0] += 0.02f;
             Invoke(nameof(EndSkill_0), 0.02f);
             return;
