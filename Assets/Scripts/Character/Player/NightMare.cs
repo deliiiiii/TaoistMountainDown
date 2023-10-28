@@ -12,5 +12,6 @@ public class NightMare : Player
     private void Update()
     {
         base.InputShoot();
+        base.InputSkill();
     }
 }

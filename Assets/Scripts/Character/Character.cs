@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
 
     public Bullet bullet;
 
-    
+
 
     public float moveSpeed;
     public Vector2 frictionSpeed;

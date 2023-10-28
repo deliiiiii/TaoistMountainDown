@@ -59,6 +59,18 @@ public class ObservableValue<T>
                 Debug.Log("RefreshRoom!");
                 break;
             }
+            case ("Element"):
+            {
+                UIManager.instance.RefreshElementUI();
+                break;
+            }
+            case ("seleted_elem"):
+            {
+                UIManager.instance.RefreshElementUI();
+                UIManager.instance.RefreshSelectedElementUI();
+                PlayerManager.instance.currentPlayer.RefreshSelectedBullet();
+                break;
+            }
             default:
                 break;
         }

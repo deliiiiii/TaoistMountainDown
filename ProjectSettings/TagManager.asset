@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Wall
   - Enemy
+  - EBullet
+  - PBullet
+  - Block
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Wall
   - PBullet
   - EBullet
-  - 
+  - Block
   - 
   - 
   - 
@@ -45,4 +48,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 802988497
+    locked: 0
+  - name: UI
+    uniqueID: 361219929
     locked: 0

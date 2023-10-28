@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    
+
     [Tooltip("技能CD")]
     public List<float> skill_loadCD;
     [Tooltip("技能充能条")]
@@ -19,6 +21,10 @@ public class Enemy : Character
     protected delegate void SkillFuncs();
     protected List<SkillFuncs> skillFuncs;
     protected Vector3 target;
+
+    [Header("攻击前摇")]
+    public GameObject readyToShoot;
+    public float shootPreTime = 0.2f;
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

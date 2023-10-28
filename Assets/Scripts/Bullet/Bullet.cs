@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Header("子弹伤害")]
+    public int bulletDamage;
+    [Header("子弹速度")]
     public float bulletSpeed;
+    [Header("子弹大小")]
     public float bulletSize;
-    
+    [Header("子弹存在时长")]
     public float bulletExistTime;
     protected float bulletExistTimer = 0;
-
+    public Element bulletElement;
     // Update is called once per frame
     void FixedUpdate()
     {
         CheckExistTime();
-        
     }
     void CheckExistTime()
     {
@@ -28,6 +31,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
             RomoveBullet();
+        if(collision.gameObject.CompareTag("Block"))
+        {
+            collision.gameObject.GetComponent<Block>().MDamage(1);
+            RomoveBullet();
+        }
     }
     protected void RomoveBullet()
     {
