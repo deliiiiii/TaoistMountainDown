@@ -16,6 +16,8 @@ public class Block : MonoBehaviour
     public List<Sprite> sprite_HP = new();
     public void MDamage(int damage)
     {
+        if (isTearable != true)
+            return;
         HP -= damage;
         Refresh();
     }

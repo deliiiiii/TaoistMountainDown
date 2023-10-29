@@ -256,9 +256,9 @@ public class Player : Character
                 return false;
             list_absorb_elem.Add(new Element(type));
             if (type == Element.TYPE.Water)
-                list_absorb_elem[index_elem].amount.Value += Element.dic_elem[type] / 5;
+                list_absorb_elem[^1].amount.Value += Element.dic_elem[type] / 5;
             else
-                list_absorb_elem[index_elem].amount.Value++;
+                list_absorb_elem[^1].amount.Value++;
             //Debug.Log("Absorbed " + type + " Count = " + list_absorb_elem[list_absorb_elem.Count - 1].amount.Value);
 
         }
