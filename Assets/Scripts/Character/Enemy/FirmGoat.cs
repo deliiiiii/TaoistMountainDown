@@ -16,7 +16,7 @@ public class FirmGoat : DaydreamGhost
             float ran_deltaAngle = UnityEngine.Random.Range(-rad_emitAngle / 2, rad_emitAngle / 2);
             Vector2 trueDirection = new(bulletDirection.x * Mathf.Cos(ran_deltaAngle) + bulletDirection.y * Mathf.Sin(ran_deltaAngle),
                                         -bulletDirection.x * Mathf.Sin(ran_deltaAngle) + bulletDirection.y * Mathf.Cos(ran_deltaAngle));
-            RoomManager.instance.GenerateBullet(gameObject, trueDirection);
+            floorManager.instance.GenerateBullet(gameObject, trueDirection);
             ////将bulletDirection逆时针旋转 emitAngle/2 的角度
             //trueDirection = new Vector2(trueDirection.x * Mathf.Cos(rad_emitAngle / (skill_1_ShotAtOneTime - 1)) - trueDirection.y * Mathf.Sin(rad_emitAngle / (skill_1_ShotAtOneTime - 1)),
             //                            trueDirection.x * Mathf.Sin(rad_emitAngle / (skill_1_ShotAtOneTime - 1)) + trueDirection.y * Mathf.Cos(rad_emitAngle / (skill_1_ShotAtOneTime - 1)));

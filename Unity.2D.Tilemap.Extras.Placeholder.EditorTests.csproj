@@ -58,10 +58,10 @@
     <Analyzer Include="D:\Program Files\2022.3.10f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Tests\Editor\PlaceholderTests.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Tests\Editor\PlaceholderTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Tests\Editor\Unity.2D.Tilemap.Extras.EditorTests.asmdef" />
+    <None Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Tests\Editor\Unity.2D.Tilemap.Extras.EditorTests.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

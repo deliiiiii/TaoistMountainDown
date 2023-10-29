@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
     }
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Door"))
             RomoveBullet();
         if(collision.gameObject.CompareTag("Block"))
         {
@@ -50,7 +50,11 @@ public class Bullet : MonoBehaviour
     }
     protected void RomoveBullet()
     {
-        RoomManager.instance.currentRoom.Value.existing_bullet.Remove(gameObject.GetComponent<Bullet>());
+        //把音源music的音效设置为jump
+        AudioPlayer.instance.music.clip = AudioPlayer.instance.Mshot;
+        //播放音效
+        AudioPlayer.instance.music.Play();
+        floorManager.instance.currentRoom.Value.existing_bullet.Remove(gameObject.GetComponent<Bullet>());
         Destroy(gameObject);
     }
 }

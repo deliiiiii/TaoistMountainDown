@@ -5,7 +5,7 @@ using UnityEngine;
 public class WindField : MonoBehaviour
 {
     [Header("风场半径")]
-    public float fieldRadius = 3f;
+    //public float fieldRadius = 3f;
     [Header("风场持续最大时间")]
     public float fieldExistTime = 5f;
     //[Header("风场持续时长")]
@@ -14,7 +14,7 @@ public class WindField : MonoBehaviour
     public float windForce = 10f;
     private void Update()
     {
-        transform.localScale = new Vector3(fieldRadius, fieldRadius, 1);
+        //transform.localScale = new Vector3(fieldRadius, fieldRadius, 1);
         if (!gameObject.activeSelf)
             return;
         if(fieldExistTimer < fieldExistTime)

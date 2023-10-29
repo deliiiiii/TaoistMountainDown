@@ -19,7 +19,9 @@ public class PWindBullet : PBullet
     public void SetSomeActive_beforeWind()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        windField.GetComponent<Animator>().SetTrigger("Appear");
         windField.SetActive(true);
+        
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
         Invoke(nameof(RomoveBullet), windField.GetComponent<WindField>().fieldExistTime);

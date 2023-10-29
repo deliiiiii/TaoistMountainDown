@@ -27,21 +27,31 @@ public class Character : MonoBehaviour
         if (GameManager.instance.isGUA)
             return;
         curHP -= damage;
+        if (GetComponent<Player>())
+        {
+            UIManager.instance.image_HP.fillAmount = (float)curHP / (float)maxHP;
+        }
         if (curHP <= 0)
         {
             curHP = 0;
             if(GetComponent<Enemy>())
             {
-                RoomManager.instance.currentRoom.Value.existing_enemy.Remove(GetComponent<Enemy>());
+                floorManager.instance.currentRoom.Value.existing_enemy.Remove(GetComponent<Enemy>());
                 Destroy(gameObject);
-                if(RoomManager.instance.currentRoom.Value.existing_enemy.Count == 0)
+                if(floorManager.instance.currentRoom.Value.existing_enemy.Count == 0)
                 {
-                    RoomManager.instance.currentRoom.Value.SetDoorState(false);
+                    floorManager.instance.currentRoom.Value.SetDoorState(false);
+                    if (floorManager.instance.currentRoom.Value == floorManager.instance.existing_room[^1])
+                    {
+                        UIManager.instance.GameWin();
+                    }
+                    
                 }
+                
             }
             if(GetComponent<Player>())
             {
-                Debug.Log("GAME OVER");
+                UIManager.instance.GameOver();
             }
         }
     }

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
         PlayerManager.instance.Initialize();
         EnemyManager.instance.Initialize();
         BulletManager.instance.Initialize();
-        RoomManager.instance.GenerateFloor();
+        floorManager.instance.Initialize();
+
+        floorManager.instance.StartFloor(0);
     }
 }

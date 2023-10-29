@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Unity.Collections.AllocatorManager;
-using static UnityEditor.Progress;
 
 public class Room : MonoBehaviour
 {
@@ -78,7 +76,7 @@ public class Room : MonoBehaviour
                            transform).GetComponent<Enemy>());
         existing_enemy[^1].gameObject.SetActive(true);
         existing_enemy[^1].transform.localPosition = new (x - 0.5f, y - 0.5f,0f);
-        RoomManager.instance.currentRoom.Value.SetDoorState(true);
+        floorManager.instance.currentRoom.Value.SetDoorState(true);
     }
     public void GenerateEnemy()
     {
@@ -131,9 +129,23 @@ public class Room : MonoBehaviour
     }
     public void SetDoorState(bool isOpen)
     {
-        for(int i=0;i<existing_door.Count;i++)
+        Debug.Log(isOpen + " ÃÅ£¡");
+        if (floorManager.instance.currentRoom.Value.type == ROOMTYPE.initial)
         {
-            existing_door[i].SetActive(isOpen);
+            for (int j = 0; j < floorManager.instance.existing_room.Count; j++)
+            {
+                for (int i = 0; i < existing_door.Count; i++)
+                {
+                    floorManager.instance.existing_room[j].existing_door[i].SetActive(isOpen);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < existing_door.Count; i++)
+            {
+                existing_door[i].SetActive(isOpen);
+            }
         }
     }
 }

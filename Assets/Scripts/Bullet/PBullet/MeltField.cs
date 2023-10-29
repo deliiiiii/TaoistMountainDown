@@ -5,9 +5,9 @@ using UnityEngine;
 public class MeltField : MonoBehaviour
 {
     [Header("爆炸半径")]
-    public float fieldRadius = 3f;
+    //public float fieldRadius = 3f;
     [Header("爆炸持续最大时间")]
-    public float fieldExistTime = 2f;
+    public float fieldExistTime = 1.2f;
     //[Header("爆炸持续时长")]
     private float fieldExistTimer = 0f;
     [Header("爆炸伤害")]
@@ -15,7 +15,7 @@ public class MeltField : MonoBehaviour
 
     private void Update()
     {
-        transform.localScale = new Vector3(fieldRadius, fieldRadius, 1);
+        //transform.localScale = new Vector3(fieldRadius, fieldRadius, 1);
         if (!gameObject.activeSelf)
             return;
         if (fieldExistTimer < fieldExistTime)

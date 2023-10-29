@@ -58,34 +58,34 @@
     <Analyzer Include="D:\Program Files\2022.3.10f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\RandomBrush\RandomBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\GameObjectBrush\GameObjectBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleOverrideTile\RuleOverrideTileEditor.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\TerrainTileMenu.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\AnimatedTile\AnimatedTileEditor.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\BasePrefabBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\TintBrushSmooth\TintTextureGeneratorEditor.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\RandomTileMenu.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleTile\RuleTileEditor.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\PipelineTileMenu.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\GroupBrush\GroupBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleOverrideTile\AdvancedRuleOverrideTileEditor.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\PrefabBrush\PrefabBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\CoordinateBrush\CoordinateBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Menu\MenuItemOrder.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\HexagonalRuleTile\HexagonalRuleTileEditor.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\PrefabRandomBrush\PrefabRandomBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\LineBrush\LineBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Menu\CustomRuleTileMenu.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleOverrideTile\PopulateRuleOverrideTileWizard.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\TintBrush\TintBrush.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\BrushMenuItem.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\TintBrushSmooth\TintBrushSmooth.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\WeightedRandomTileMenu.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\IsometricRuleTile\IsometricRuleTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\AnimatedTile\AnimatedTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\TintBrushSmooth\TintBrushSmooth.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleOverrideTile\AdvancedRuleOverrideTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\HexagonalRuleTile\HexagonalRuleTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\TintBrush\TintBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleOverrideTile\PopulateRuleOverrideTileWizard.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\TintBrushSmooth\TintTextureGeneratorEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\PipelineTileMenu.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\PrefabBrush\PrefabBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\WeightedRandomTileMenu.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\IsometricRuleTile\IsometricRuleTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Menu\MenuItemOrder.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\BasePrefabBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\LineBrush\LineBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\GroupBrush\GroupBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\GameObjectBrush\GameObjectBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\PrefabRandomBrush\PrefabRandomBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\CoordinateBrush\CoordinateBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleOverrideTile\RuleOverrideTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Menu\CustomRuleTileMenu.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\RuleTile\RuleTileEditor.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\PrefabBrushes\BrushMenuItem.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\RandomTileMenu.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Brushes\RandomBrush\RandomBrush.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Tiles\Menu\TerrainTileMenu.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Unity.2D.Tilemap.Extras.Editor.asmdef" />
+    <None Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Editor\Unity.2D.Tilemap.Extras.Editor.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

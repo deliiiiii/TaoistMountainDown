@@ -12,13 +12,13 @@ public class PRockBullet : PBullet
         int pos_this_x = Mathf.RoundToInt(transform.localPosition.x+0.5f);
         int pos_this_y = Mathf.RoundToInt(transform.localPosition.y+0.5f);
         //Debug.Log("Rock Pos : " + pos_this_x + " , " + pos_this_y);
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") ||  collision.gameObject.CompareTag("Door"))
         {
             for (int dx = -1; dx <= 1; dx++)
                 for (int dy = -1; dy <= 1; dy++)
-                    if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x, pos_this_y))
+                    if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x, pos_this_y))
                     {
-                        RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x, pos_this_y);
+                        floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x, pos_this_y);
                         dy = dx = 2;
                     }
             RomoveBullet();
@@ -40,25 +40,25 @@ public class PRockBullet : PBullet
             float angle = Mathf.Atan2(delta.y, delta.x)*180/3.1415926f;
             if(angle >= 45f && angle <= 135f || (angle+180f) >= 45f && (angle + 180f) <= 135f)
             {
-                if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + 0, pos_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + 0);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x +0, pos_y+dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + dy);
-                else if(!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + dy);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + 0);
+                if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + 0, pos_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + 0);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x +0, pos_y+dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + dy);
+                else if(!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + dy);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + 0);
             }
             else
             {
-                if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + 0, pos_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + 0);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + 0);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + dy);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_x + 0, pos_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + dy);
+                if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + 0, pos_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + 0);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + 0);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + dx, pos_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + dx, pos_y + dy);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_x + 0, pos_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_x + 0, pos_y + dy);
             }
             RomoveBullet();
         }
@@ -74,25 +74,25 @@ public class PRockBullet : PBullet
             int dy = v.y >= 0 ? -1 : 1;
             if (angle >= 45f && angle <= 135f || (angle + 180f) >= 45f && (angle + 180f) <= 135f)
             {
-                if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + 0);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + dy);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + dy);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + 0);
+                if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + 0);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + dy);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + dy);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + 0);
             }
             else
             {
-                if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + 0);
-                else if(!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + 0))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + 0);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + dy);
-                else if (!RoomManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + dy))
-                    RoomManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + dy);
+                if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + 0);
+                else if(!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + 0))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + 0);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + dx, pos_this_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + dx, pos_this_y + dy);
+                else if (!floorManager.instance.currentRoom.Value.CheckExistBlock(pos_this_x + 0, pos_this_y + dy))
+                    floorManager.instance.currentRoom.Value.GenerateBlock(stone, pos_this_x + 0, pos_this_y + dy);
             }
             RomoveBullet();
         }

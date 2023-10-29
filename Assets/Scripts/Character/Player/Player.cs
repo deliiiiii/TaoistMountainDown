@@ -64,12 +64,18 @@ public class Player : Character
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         Room room = collision.GetComponent<Room>();
         if (room)
         {
-            RoomManager.instance.currentRoom.Value = room;
+            floorManager.instance.currentRoom.Value = room;
             if (room.type == Room.ROOMTYPE.initial || room.type == Room.ROOMTYPE.destination)
+            {
+                room.SetDoorState(false);
+                room.isExplored = true;
                 return;
+            }
+                
             if (room.isExplored)
                 return;
             
@@ -155,7 +161,7 @@ public class Player : Character
             //Debug.Log("target = " + target);
             //Debug.Log("bulletDirection = " + bulletDirection);
 
-            RoomManager.instance.GenerateBullet(gameObject, bulletDirection);
+            floorManager.instance.GenerateBullet(gameObject, bulletDirection);
             if(seleted_elem.Value != -1)
             {
                 list_absorb_elem[seleted_elem.Value].amount.Value--;
@@ -177,6 +183,7 @@ public class Player : Character
         else if(Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1))//Œ¸ ’
         {
             absorb_circle.SetActive(true);
+            absorb_circle.GetComponent<Animator>().SetTrigger("Appear");
             bulletAbsorbTimer = 0;
         }
 
@@ -215,12 +222,12 @@ public class Player : Character
                     seleted_elem.Value = -1;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-            RoomManager.instance.currentRoom.Value.GenerateEnemy(EnemyManager.instance.prefabs_enemy[0]);
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-            RoomManager.instance.currentRoom.Value.GenerateEnemy(EnemyManager.instance.prefabs_enemy[1]);
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-            RoomManager.instance.currentRoom.Value.GenerateEnemy(EnemyManager.instance.prefabs_enemy[2]);
+        //if (Input.GetKeyDown(KeyCode.Keypad1))
+        //    floorManager.instance.currentRoom.Value.GenerateEnemy(EnemyManager.instance.prefabs_enemy[0]);
+        //if (Input.GetKeyDown(KeyCode.Keypad2))
+        //    floorManager.instance.currentRoom.Value.GenerateEnemy(EnemyManager.instance.prefabs_enemy[1]);
+        //if (Input.GetKeyDown(KeyCode.Keypad3))
+        //    floorManager.instance.currentRoom.Value.GenerateEnemy(EnemyManager.instance.prefabs_enemy[2]);
     }
     public void RefreshSelectedBullet()
     {
@@ -231,6 +238,7 @@ public class Player : Character
             type = list_absorb_elem[seleted_elem.Value].type;
         bullet = dic_bullet[type];
         UIManager.instance.selected_elem.text = type.ToString();
+        UIManager.instance.selected_elem.color = new Color(UIManager.instance.dic_elemSprite[type][0] / 255f, UIManager.instance.dic_elemSprite[type][1] / 255f, UIManager.instance.dic_elemSprite[type][2] / 255f);
     }
     public bool AbsorbElement(Element.TYPE type)
     {
@@ -328,5 +336,9 @@ public class Player : Character
         anim.SetBool("Move", false);
         if (name != null)
             anim.SetBool(name, true);
+        if(GetComponent<Rigidbody2D>().velocity.x < 0)
+            transform.localScale = new (-1 * Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
+        else
+            transform.localScale = new (Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
     }
 }

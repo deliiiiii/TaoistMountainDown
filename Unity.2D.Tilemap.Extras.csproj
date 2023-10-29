@@ -58,22 +58,22 @@
     <Analyzer Include="D:\Program Files\2022.3.10f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\TerrainTile\TerrainTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RandomTile\RandomTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RuleOverrideTile\RuleOverrideTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RuleTile\RuleTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\PipelineTile\PipelineTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Brushes\TintTextureGenerator.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\GridInformation\GridInformation.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\WeightedRandomTile\WeightedRandomTile.cs" />
-    <Compile Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\GridInformation\GridInformation.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\TerrainTile\TerrainTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\WeightedRandomTile\WeightedRandomTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Brushes\TintTextureGenerator.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RuleTile\RuleTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\PipelineTile\PipelineTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RuleOverrideTile\RuleOverrideTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RandomTile\RandomTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
+    <Compile Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Unity.2D.Tilemap.Extras.asmdef" />
-    <None Include="Assets\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Brushes\TintedTilemap.shader" />
+    <None Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Unity.2D.Tilemap.Extras.asmdef" />
+    <None Include="Assets\Editor\2d-extras-package_2022.1\2d-extras-package_2022.1\Runtime\Brushes\TintedTilemap.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

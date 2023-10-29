@@ -60,7 +60,7 @@ public class DaydreamGhost : Enemy
                                             -bulletDirection.x * Mathf.Sin(rad_emitAngle / 2) + bulletDirection.y * Mathf.Cos(rad_emitAngle / 2));
         for(int i = 0; i < skill_1_ShotAtOneTime; i++)
         {
-            RoomManager.instance.GenerateBullet(gameObject, trueDirection);
+            floorManager.instance.GenerateBullet(gameObject, trueDirection);
             //将bulletDirection逆时针旋转 emitAngle/2 的角度
             trueDirection = new Vector2(trueDirection.x * Mathf.Cos(rad_emitAngle / (skill_1_ShotAtOneTime-1)) - trueDirection.y * Mathf.Sin(rad_emitAngle / (skill_1_ShotAtOneTime - 1)),
                                         trueDirection.x * Mathf.Sin(rad_emitAngle / (skill_1_ShotAtOneTime - 1)) + trueDirection.y * Mathf.Cos(rad_emitAngle / (skill_1_ShotAtOneTime - 1)));
