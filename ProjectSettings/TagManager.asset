@@ -9,7 +9,6 @@ TagManager:
   - EBullet
   - PBullet
   - Block
-  - Door
   layers:
   - Default
   - TransparentFX

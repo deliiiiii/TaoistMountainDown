@@ -241,7 +241,12 @@ public class Player : Character
                 return false;
             if (list_absorb_elem[index_elem].amount.Value >= Element.dic_elem[type])
                 return false;
-            list_absorb_elem[index_elem].amount.Value++;
+            if (type == Element.TYPE.Water)
+                list_absorb_elem[index_elem].amount.Value += Element.dic_elem[type]/5;
+            else
+                list_absorb_elem[index_elem].amount.Value++;
+            if (list_absorb_elem[index_elem].amount.Value > Element.dic_elem[type])
+                list_absorb_elem[index_elem].amount.Value = Element.dic_elem[type];
             //Debug.Log("Absorbed " + type + " Count = " + list_absorb_elem[index_elem].amount.Value);
 
         }
@@ -250,7 +255,10 @@ public class Player : Character
             if (list_absorb_elem.Count == 2)
                 return false;
             list_absorb_elem.Add(new Element(type));
-            list_absorb_elem[^1].amount.Value++;
+            if (type == Element.TYPE.Water)
+                list_absorb_elem[index_elem].amount.Value += Element.dic_elem[type] / 5;
+            else
+                list_absorb_elem[index_elem].amount.Value++;
             //Debug.Log("Absorbed " + type + " Count = " + list_absorb_elem[list_absorb_elem.Count - 1].amount.Value);
 
         }

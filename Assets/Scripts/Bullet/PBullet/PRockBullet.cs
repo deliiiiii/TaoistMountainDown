@@ -65,7 +65,8 @@ public class PRockBullet : PBullet
         else if (collision.gameObject.CompareTag("Block"))
         {
             Block block = collision.gameObject.GetComponent<Block>();
-            collision.gameObject.GetComponent<Block>().MDamage(1);
+            if (block.isTearable == true)
+                collision.gameObject.GetComponent<Block>().MDamage(1);
             Vector2 v = GetComponent<Rigidbody2D>().velocity;
             //在子弹的来向上生成一个石头
             float angle = Mathf.Atan2(v.y, v.x) * 180 / 3.1415926f;

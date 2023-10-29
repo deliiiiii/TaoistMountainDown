@@ -37,11 +37,8 @@ public class Room : MonoBehaviour
         //pos_world = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, transform.position.z);
         for(int i=0;i<transform.childCount;i++)
         {
-            if(transform.GetChild(i).CompareTag("Door"))
-            {
-                existing_door.Add(transform.GetChild(i).gameObject);
-                existing_door[^1].SetActive(false);
-            }
+            existing_door.Add(transform.GetChild(i).gameObject);
+            existing_door[^1].SetActive(false);
         }
     }
 

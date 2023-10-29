@@ -18,9 +18,9 @@ public class Element
     };
     public static Dictionary<TYPE, int> dic_elem= new ()
     {
-        {TYPE.Fire, 3},
-        {TYPE.Water, 3},
-        {TYPE.Mud, 3},
+        {TYPE.Fire, 20},
+        {TYPE.Water, 20},
+        {TYPE.Mud, 20},
         {TYPE.Rock, 20},
         {TYPE.Wind, 5},
         {TYPE.Melt, 10},
