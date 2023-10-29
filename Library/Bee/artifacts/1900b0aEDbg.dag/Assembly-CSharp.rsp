@@ -383,6 +383,7 @@
 -analyzer:"D:/Program Files/2022.3.10f1c1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Block/Block.cs"
 "Assets/Scripts/Block/BlockManager.cs"
+"Assets/Scripts/Block/Steel.cs"
 "Assets/Scripts/Block/Stone.cs"
 "Assets/Scripts/Bullet/Bullet.cs"
 "Assets/Scripts/Bullet/BulletManager.cs"

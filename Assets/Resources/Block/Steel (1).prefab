@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 8941494187733395019}
   - component: {fileID: 8463878481186374619}
   - component: {fileID: 796822371278678303}
+  - component: {fileID: 6392966636918438613}
   m_Layer: 8
   m_Name: Steel (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4752113950600622767
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8228553899488163786}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -158,3 +159,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6392966636918438613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228553899488163786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4717b6118d500b4aa6c6c5c88514517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: -1
+  size_x: 1
+  size_y: 1
+  pos_x: -1
+  pos_y: -1
+  HP: -1
+  sprite_HP: []
